@@ -1,3 +1,5 @@
+import {request} from '../../request/index'
+
 Page({
 
   /**
@@ -15,14 +17,10 @@ Page({
     this.getSwiperList()
   },
 
-  getSwiperList() {
-    wx.request({
-      url: 'https://api-hmugo-web.itheima.net/api/public/v1/home/swiperdata',
-      success: (result) => {
-        this.setData({
-          swiperList: result.data.message
-        })
-      }
+  async getSwiperList() {
+    const swiperData = await request('home/swiperdata')
+    this.setData({
+      swiperList: swiperData.data.message
     })
   },
 
