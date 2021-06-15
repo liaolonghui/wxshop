@@ -1,3 +1,4 @@
-<view>
-  首页<i class="iconfont icon-receipt-address"></i>
+<view class="pyg_index">
+  <!-- 搜索框 -->
+  <SearchInput></SearchInput>
 </view>
