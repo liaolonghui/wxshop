@@ -8,6 +8,8 @@ Page({
   data: {
     // 轮播图数据
     swiperList: [],
+    // 导航数据
+    catesList: []
   },
 
   /**
@@ -15,12 +17,20 @@ Page({
    */
   onLoad: function (options) {
     this.getSwiperList()
+    this.getCateList()
   },
 
   async getSwiperList() {
     const swiperData = await request('home/swiperdata')
     this.setData({
       swiperList: swiperData.data.message
+    })
+  },
+
+  async getCateList() {
+    const cateData = await request('home/catitems')
+    this.setData({
+      catesList: cateData.data.message
     })
   },
 
