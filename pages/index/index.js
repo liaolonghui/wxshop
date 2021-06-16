@@ -9,7 +9,9 @@ Page({
     // 轮播图数据
     swiperList: [],
     // 导航数据
-    catesList: []
+    catesList: [],
+    // 楼层数据
+    floorList: []
   },
 
   /**
@@ -18,6 +20,7 @@ Page({
   onLoad: function (options) {
     this.getSwiperList()
     this.getCateList()
+    this.getFloorList()
   },
 
   async getSwiperList() {
@@ -31,6 +34,13 @@ Page({
     const cateData = await request('home/catitems')
     this.setData({
       catesList: cateData.data.message
+    })
+  },
+
+  async getFloorList() {
+    const floorData = await request('home/floordata')
+    this.setData({
+      floorList: floorData.data.message
     })
   },
 
